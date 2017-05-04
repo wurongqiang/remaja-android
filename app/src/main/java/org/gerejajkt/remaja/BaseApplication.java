@@ -6,9 +6,6 @@ import org.gerejajkt.remaja.di.components.ApplicationComponent;
 import org.gerejajkt.remaja.di.components.DaggerApplicationComponent;
 import org.gerejajkt.remaja.di.modules.AppModule;
 import org.gerejajkt.remaja.di.modules.RetrofitModule;
-import org.gerejajkt.remaja.domain.ManageUser;
-
-import javax.inject.Inject;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -21,9 +18,6 @@ public class BaseApplication extends Application {
 
     private ApplicationComponent applicationComponent;
     private String BASE_URL = "http://localhost:3000/api/v1/";
-
-    @Inject
-    ManageUser manageUser;
 
     @Override
     public void onCreate() {

@@ -78,8 +78,7 @@ public class RetrofitModule {
             Request.Builder builderRequest = request.newBuilder();
             builderRequest.addHeader("Content-Type", "application/json");
             builderRequest.addHeader("Accept", "application/json");
-            builderRequest.addHeader("API-KEY", "17d32457220C136fA34bA83964d493Be");
-            builderRequest.addHeader("PLATFORM", "Android");
+            builderRequest.addHeader("API-KEY", "134ab462-f5c6-434e-93f2-617c9423ad13");
 
             User user = userDao.getUser();
 

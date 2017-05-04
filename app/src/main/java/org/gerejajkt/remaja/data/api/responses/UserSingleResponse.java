@@ -1,5 +1,7 @@
 package org.gerejajkt.remaja.data.api.responses;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.gerejajkt.remaja.model.User;
 
 /**
@@ -8,19 +10,22 @@ import org.gerejajkt.remaja.model.User;
 
 public class UserSingleResponse {
 
+    @SerializedName("saint")
     public UserResponse user;
+
     public String token;
 
     public User toUser() {
 
         User data = new User();
+        data.setId(user.id);
         data.setName(user.name);
         data.setEmail(user.email);
+        data.setHall(user.hall);
+        data.setPhone(user.phone);
+        data.setGender(user.gender);
+
         data.setToken(token);
-        data.setId(user.id);
-        data.setNationality(user.nationality);
-        data.setPhoneCode(user.phoneCode);
-        data.setProfilePicture(user.profilePicture);
 
         return data;
     }

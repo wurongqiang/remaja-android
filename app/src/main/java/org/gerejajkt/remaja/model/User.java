@@ -14,7 +14,7 @@ public class User implements RealmModel{
     @PrimaryKey
     private int id;
 
-    private String name, email, nationality, phoneCode, profilePicture, token, phone;
+    private String name, email, hall, token, phone, gender;
 
     public int getId() {
         return id;
@@ -40,30 +40,6 @@ public class User implements RealmModel{
         this.email = email;
     }
 
-    public String getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-
-    public String getPhoneCode() {
-        return phoneCode;
-    }
-
-    public void setPhoneCode(String phoneCode) {
-        this.phoneCode = phoneCode;
-    }
-
-    public String getProfilePicture() {
-        return profilePicture;
-    }
-
-    public void setProfilePicture(String profilePicture) {
-        this.profilePicture = profilePicture;
-    }
-
     public String getToken() {
         return token;
     }
@@ -78,5 +54,21 @@ public class User implements RealmModel{
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getHall() {
+        return hall;
+    }
+
+    public void setHall(String hall) {
+        this.hall = hall;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

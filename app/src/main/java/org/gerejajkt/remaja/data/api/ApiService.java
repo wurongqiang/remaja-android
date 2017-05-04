@@ -2,8 +2,6 @@ package org.gerejajkt.remaja.data.api;
 
 import org.gerejajkt.remaja.data.api.responses.UserSingleResponse;
 
-import java.util.Date;
-
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import retrofit2.http.Field;
@@ -18,7 +16,7 @@ public interface ApiService {
 
     @POST("login")
     @FormUrlEncoded
-    Single<UserSingleResponse> login(@Field("email") String email, @Field("password") String password);
+    Single<UserSingleResponse> login(@Field("username") String email, @Field("password") String password);
 
     @POST("logout")
     @FormUrlEncoded
