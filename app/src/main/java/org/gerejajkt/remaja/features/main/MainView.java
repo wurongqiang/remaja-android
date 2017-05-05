@@ -10,4 +10,7 @@ interface MainView extends BaseView {
     void navigateToLoginActivity();
 
     void showProfileFragment();
+
+    void showAttendanceFragment();
+
 }

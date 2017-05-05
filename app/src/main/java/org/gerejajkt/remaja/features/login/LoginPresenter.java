@@ -3,7 +3,7 @@ package org.gerejajkt.remaja.features.login;
 import android.util.Patterns;
 
 import org.gerejajkt.remaja.custom.ResolvedSingleObserver;
-import org.gerejajkt.remaja.domain.ManageUser;
+import org.gerejajkt.remaja.domain.manageUser.ManageUser;
 import org.gerejajkt.remaja.domain.viewparam.UserViewParam;
 import org.gerejajkt.remaja.features.base.BasePresenter;
 import org.gerejajkt.remaja.utils.schedulers.BaseSchedulerProvider;

@@ -1,4 +1,4 @@
-package org.gerejajkt.remaja.domain;
+package org.gerejajkt.remaja.domain.manageUser;
 
 import org.gerejajkt.remaja.domain.viewparam.UserViewParam;
 
@@ -13,7 +13,7 @@ public interface ManageUser {
 
     Single<UserViewParam> login(String email, String password);
     Single<UserViewParam> getUser();
-    Completable logout(String deviceId);
+    Completable logout();
 
     boolean isLoggedIn();
     String getToken();

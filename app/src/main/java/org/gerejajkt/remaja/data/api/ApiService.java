@@ -1,11 +1,13 @@
 package org.gerejajkt.remaja.data.api;
 
-import org.gerejajkt.remaja.data.api.responses.UserSingleResponse;
+import org.gerejajkt.remaja.data.api.responses.attendance.AttendanceListResponse;
+import org.gerejajkt.remaja.data.api.responses.user.UserSingleResponse;
 
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -19,7 +21,9 @@ public interface ApiService {
     Single<UserSingleResponse> login(@Field("username") String email, @Field("password") String password);
 
     @POST("logout")
-    @FormUrlEncoded
-    Completable logout(@Field("device_id") String deviceId);
+    Completable logout();
+
+    @GET("attendances")
+    Single<AttendanceListResponse> getAttendances();
 
 }

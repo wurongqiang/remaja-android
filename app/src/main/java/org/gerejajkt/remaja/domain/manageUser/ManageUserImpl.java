@@ -1,7 +1,8 @@
-package org.gerejajkt.remaja.domain;
+package org.gerejajkt.remaja.domain.manageUser;
 
-import org.gerejajkt.remaja.data.api.UserApi;
-import org.gerejajkt.remaja.data.dao.UserDao;
+import org.gerejajkt.remaja.data.api.user.UserApi;
+import org.gerejajkt.remaja.data.dao.attendance.AttendanceDao;
+import org.gerejajkt.remaja.data.dao.user.UserDao;
 import org.gerejajkt.remaja.domain.viewparam.UserViewParam;
 import org.gerejajkt.remaja.model.User;
 
@@ -17,20 +18,21 @@ public class ManageUserImpl implements ManageUser {
     private static ManageUserImpl sInstance;
     private final UserDao userDao;
     private final UserApi userApi;
+    private final AttendanceDao attendanceDao;
     private User userInMemory;
 
-    public static ManageUserImpl getInstance(UserApi userApi, UserDao userDao) {
+    public static ManageUserImpl getInstance(UserApi userApi, UserDao userDao, AttendanceDao attendaceDao) {
 
         if (sInstance == null) {
-            sInstance = new ManageUserImpl(userApi, userDao);
-
+            sInstance = new ManageUserImpl(userApi, userDao, attendaceDao);
         }
         return sInstance;
     }
 
-    private ManageUserImpl(UserApi userApi, UserDao userDao) {
+    private ManageUserImpl(UserApi userApi, UserDao userDao, AttendanceDao attendanceDao) {
         this.userApi = userApi;
         this.userDao = userDao;
+        this.attendanceDao = attendanceDao;
     }
 
     @Override
@@ -56,8 +58,9 @@ public class ManageUserImpl implements ManageUser {
     }
 
     @Override
-    public Completable logout(String deviceId) {
-        return userApi.logout(deviceId).doOnComplete(() -> {
+    public Completable logout() {
+        return userApi.logout().doOnComplete(() -> {
+            attendanceDao.deleteAll();
             userDao.deleteUser();
             userInMemory = null;
         });

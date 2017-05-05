@@ -1,8 +1,10 @@
 package org.gerejajkt.remaja.di.modules;
 
 import org.gerejajkt.remaja.data.api.ApiService;
-import org.gerejajkt.remaja.data.api.UserApi;
-import org.gerejajkt.remaja.data.api.UserApiImpl;
+import org.gerejajkt.remaja.data.api.attendance.AttendanceApi;
+import org.gerejajkt.remaja.data.api.attendance.AttendanceApiImpl;
+import org.gerejajkt.remaja.data.api.user.UserApi;
+import org.gerejajkt.remaja.data.api.user.UserApiImpl;
 
 import javax.inject.Singleton;
 
@@ -21,4 +23,8 @@ public class ApiModule {
     UserApi provideUserApi(ApiService apiService) {
         return new UserApiImpl(apiService);
     }
+
+    @Provides
+    AttendanceApi provideAttendanceApi(ApiService apiService) { return new AttendanceApiImpl(apiService); }
+
 }

@@ -3,7 +3,7 @@ package org.gerejajkt.remaja.features.main;
 import android.view.MenuItem;
 
 import org.gerejajkt.remaja.R;
-import org.gerejajkt.remaja.domain.ManageUser;
+import org.gerejajkt.remaja.domain.manageUser.ManageUser;
 import org.gerejajkt.remaja.features.base.BasePresenter;
 import org.gerejajkt.remaja.utils.schedulers.BaseSchedulerProvider;
 
@@ -36,6 +36,9 @@ class MainPresenter extends BasePresenter<MainView> {
     public void selectNavigationItem(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.action_attendance:
+                getView().showAttendanceFragment();
+                break;
             case R.id.action_me:
                 getView().showProfileFragment();
                 break;

@@ -1,4 +1,4 @@
-package org.gerejajkt.remaja.data.api.responses;
+package org.gerejajkt.remaja.data.api.responses.user;
 
 /**
  * Created by huteri on 4/26/17.

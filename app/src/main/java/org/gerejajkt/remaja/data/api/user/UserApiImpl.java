@@ -1,5 +1,6 @@
-package org.gerejajkt.remaja.data.api;
+package org.gerejajkt.remaja.data.api.user;
 
+import org.gerejajkt.remaja.data.api.ApiService;
 import org.gerejajkt.remaja.model.User;
 
 import io.reactivex.Completable;
@@ -23,7 +24,7 @@ public class UserApiImpl implements UserApi {
     }
 
     @Override
-    public Completable logout(String deviceId) {
-        return apiService.logout(deviceId);
+    public Completable logout() {
+        return apiService.logout();
     }
 }

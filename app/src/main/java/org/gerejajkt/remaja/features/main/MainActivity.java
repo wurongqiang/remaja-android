@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import org.gerejajkt.remaja.BaseApplication;
 import org.gerejajkt.remaja.R;
+import org.gerejajkt.remaja.features.attendance.AttendanceFragment;
 import org.gerejajkt.remaja.features.base.BaseActivity;
 import org.gerejajkt.remaja.features.profile.ProfileFragment;
 
@@ -69,6 +70,11 @@ public class MainActivity extends BaseActivity implements MainView, BottomNaviga
     }
 
     @Override
+    public void showAttendanceFragment() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new AttendanceFragment()).commit();
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         presenter.selectNavigationItem(item);
         return true;
@@ -77,7 +83,7 @@ public class MainActivity extends BaseActivity implements MainView, BottomNaviga
     private void initStartFragment() {
 
         if (getSupportFragmentManager().findFragmentByTag("fragment") == null)
-            getSupportFragmentManager().beginTransaction().add(R.id.container, new ProfileFragment(), "fragment").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.container, new AttendanceFragment(), "fragment").commit();
 
     }
 }

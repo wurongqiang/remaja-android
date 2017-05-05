@@ -1,4 +1,4 @@
-package org.gerejajkt.remaja.data.dao;
+package org.gerejajkt.remaja.data.dao.user;
 
 import org.gerejajkt.remaja.model.User;
 

@@ -6,6 +6,7 @@ import org.gerejajkt.remaja.di.modules.AppModule;
 import org.gerejajkt.remaja.di.modules.DaoModule;
 import org.gerejajkt.remaja.di.modules.RetrofitModule;
 import org.gerejajkt.remaja.di.modules.UseCaseModule;
+import org.gerejajkt.remaja.features.attendance.AttendanceFragment;
 import org.gerejajkt.remaja.features.login.LoginActivity;
 import org.gerejajkt.remaja.features.main.MainActivity;
 import org.gerejajkt.remaja.features.profile.ProfileFragment;
@@ -34,4 +35,6 @@ public interface ApplicationComponent {
     void inject(MainActivity mainActivity);
 
     void inject(ProfileFragment profileFragment);
+
+    void inject(AttendanceFragment attendanceFragment);
 }

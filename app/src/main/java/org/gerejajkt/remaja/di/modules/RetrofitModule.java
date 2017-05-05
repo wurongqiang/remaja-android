@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import org.gerejajkt.remaja.BuildConfig;
 import org.gerejajkt.remaja.custom.RxErrorHandlingCallAdapterFactory;
 import org.gerejajkt.remaja.data.api.ApiService;
-import org.gerejajkt.remaja.data.dao.UserDao;
+import org.gerejajkt.remaja.data.dao.user.UserDao;
 import org.gerejajkt.remaja.model.User;
 
 import javax.inject.Singleton;

@@ -1,4 +1,4 @@
-package org.gerejajkt.remaja.data.api;
+package org.gerejajkt.remaja.data.api.user;
 
 import org.gerejajkt.remaja.model.User;
 
@@ -11,5 +11,5 @@ import io.reactivex.Single;
 
 public interface UserApi {
     Single<User> login(String email, String password);
-    Completable logout(String deviceId);
+    Completable logout();
 }

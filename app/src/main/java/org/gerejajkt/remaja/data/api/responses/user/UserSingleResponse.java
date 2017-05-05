@@ -1,4 +1,4 @@
-package org.gerejajkt.remaja.data.api.responses;
+package org.gerejajkt.remaja.data.api.responses.user;
 
 import com.google.gson.annotations.SerializedName;
 

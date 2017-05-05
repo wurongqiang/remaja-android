@@ -1,7 +1,7 @@
 package org.gerejajkt.remaja.features.profile;
 
 import org.gerejajkt.remaja.custom.ResolvedCompletableObserver;
-import org.gerejajkt.remaja.domain.ManageUser;
+import org.gerejajkt.remaja.domain.manageUser.ManageUser;
 import org.gerejajkt.remaja.domain.viewparam.UserViewParam;
 import org.gerejajkt.remaja.features.base.BasePresenter;
 import org.gerejajkt.remaja.utils.schedulers.BaseSchedulerProvider;
@@ -40,7 +40,7 @@ class ProfilePresenter extends BasePresenter<ProfileView> {
 
         getView().showLoadingBar();
 
-        manageUser.logout(null)
+        manageUser.logout()
                 .subscribeOn(scheduler.io())
                 .observeOn(scheduler.ui())
                 .subscribe(new ResolvedCompletableObserver(getView().getResolution()) {
