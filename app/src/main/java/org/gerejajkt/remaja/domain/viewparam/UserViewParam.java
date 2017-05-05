@@ -8,17 +8,18 @@ import org.gerejajkt.remaja.model.User;
 
 public class UserViewParam {
 
-    private String name, email, profilePicture;
+    private String name, email, phone, gender, hall;
 
     public static UserViewParam create(User user) {
         UserViewParam userViewParam = new UserViewParam();
         userViewParam.name = user.getName();
         userViewParam.email = user.getEmail();
-        userViewParam.profilePicture = user.getProfilePicture();
+        userViewParam.hall = user.getHall();
+        userViewParam.phone = user.getPhone();
+        userViewParam.gender = user.getGender();
 
         return userViewParam;
     }
-
 
     public String getName() {
         return name;
@@ -28,7 +29,4 @@ public class UserViewParam {
         return email;
     }
 
-    public String getProfilePicture() {
-        return profilePicture;
-    }
 }

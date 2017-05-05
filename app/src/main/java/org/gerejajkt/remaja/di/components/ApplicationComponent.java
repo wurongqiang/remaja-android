@@ -7,6 +7,8 @@ import org.gerejajkt.remaja.di.modules.DaoModule;
 import org.gerejajkt.remaja.di.modules.RetrofitModule;
 import org.gerejajkt.remaja.di.modules.UseCaseModule;
 import org.gerejajkt.remaja.features.login.LoginActivity;
+import org.gerejajkt.remaja.features.main.MainActivity;
+import org.gerejajkt.remaja.features.profile.ProfileFragment;
 
 import javax.inject.Singleton;
 
@@ -28,4 +30,8 @@ public interface ApplicationComponent {
     void inject(BaseApplication baseApplication);
 
     void inject(LoginActivity loginActivity);
+
+    void inject(MainActivity mainActivity);
+
+    void inject(ProfileFragment profileFragment);
 }

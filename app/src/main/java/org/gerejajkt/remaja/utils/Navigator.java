@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import org.gerejajkt.remaja.features.login.LoginActivity;
+import org.gerejajkt.remaja.features.main.MainActivity;
 
 import javax.inject.Inject;
 
@@ -18,8 +19,8 @@ public class Navigator {
     }
 
     public void navigateToMainActivity(Context context) {
-//        Intent intent = new Intent(context, MainActivity.class);
-//        context.startActivity(intent);
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
     }
 
     public void navigateToLoginActivity(Context context) {

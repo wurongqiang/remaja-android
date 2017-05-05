@@ -17,7 +17,7 @@ import io.realm.RealmConfiguration;
 public class BaseApplication extends Application {
 
     private ApplicationComponent applicationComponent;
-    private String BASE_URL = "http://localhost:3000/api/v1/";
+    private String BASE_URL = "http://remaja.gerejajkt.org:3030/api/v1/";
 
     @Override
     public void onCreate() {
