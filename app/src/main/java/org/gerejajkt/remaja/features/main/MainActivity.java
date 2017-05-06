@@ -62,6 +62,8 @@ public class MainActivity extends BaseActivity implements MainView, BottomNaviga
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
         Fragment currentFragment = getCurrentFragment();
 
         if (currentFragment != null) {

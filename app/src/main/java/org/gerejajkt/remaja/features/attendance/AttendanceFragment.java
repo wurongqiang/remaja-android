@@ -92,9 +92,12 @@ public class AttendanceFragment extends BaseFragment implements AttendanceView {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == Navigator.QR_CODE_SCANNED) {
             if (resultCode == Activity.RESULT_OK) {
                 String qrCodeValue = data.getStringExtra("qr_code_value");
+                // recreate view, somehow view is null
                 onResume();
                 presenter.onQRCodeScanned(qrCodeValue);
             }
