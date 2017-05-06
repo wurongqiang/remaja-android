@@ -27,7 +27,7 @@ public class AddAttendanceImpl implements AddAttendance {
     }
 
     @Override
-    public Single<Void> addAttendance(int sessionId) {
+    public Single<String> addAttendance(int sessionId) {
         return attendanceApi.addAttendance(sessionId);
     }
 }

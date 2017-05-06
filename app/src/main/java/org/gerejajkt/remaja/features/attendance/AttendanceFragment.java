@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -97,11 +98,14 @@ public class AttendanceFragment extends BaseFragment implements AttendanceView {
         if (requestCode == Navigator.QR_CODE_SCANNED) {
             if (resultCode == Activity.RESULT_OK) {
                 String qrCodeValue = data.getStringExtra("qr_code_value");
-                // recreate view, somehow view is null
-                onResume();
-                presenter.onQRCodeScanned(qrCodeValue);
+                presenter.valueScannedFromQRCode = qrCodeValue;
             }
         }
+    }
+
+    @Override
+    public void showSnackbar(String message) {
+        Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
     }
 
     @Override

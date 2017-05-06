@@ -26,7 +26,7 @@ public class AttendanceApiImpl implements AttendanceApi {
     }
 
     @Override
-    public Single<Void> addAttendance(int sessionId) {
-        return apiService.addAttendance(sessionId);
+    public Single<String> addAttendance(int sessionId) {
+        return apiService.addAttendance(sessionId).map(successResponse -> successResponse.message);
     }
 }

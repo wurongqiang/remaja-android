@@ -20,4 +20,6 @@ interface AttendanceView extends BaseView {
     void showAttendances(List<AttendanceViewParam> o);
 
     void navigateToQRCodeScannerActivity();
+
+    void showSnackbar(String message);
 }

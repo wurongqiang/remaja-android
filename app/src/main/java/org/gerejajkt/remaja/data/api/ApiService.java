@@ -1,5 +1,6 @@
 package org.gerejajkt.remaja.data.api;
 
+import org.gerejajkt.remaja.data.api.responses.SuccessResponse;
 import org.gerejajkt.remaja.data.api.responses.attendance.AttendanceListResponse;
 import org.gerejajkt.remaja.data.api.responses.user.UserSingleResponse;
 
@@ -33,5 +34,5 @@ public interface ApiService {
 
     @POST("attendances")
     @FormUrlEncoded
-    Single<Void> addAttendance(@Field("session_id") int sessionId);
+    Single<SuccessResponse> addAttendance(@Field("session_id") int sessionId);
 }

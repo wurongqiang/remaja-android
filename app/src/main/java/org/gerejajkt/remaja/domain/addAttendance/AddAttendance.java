@@ -7,5 +7,5 @@ import io.reactivex.Single;
  */
 
 public interface AddAttendance {
-    Single<Void> addAttendance(int sessionId);
+    Single<String> addAttendance(int sessionId);
 }

@@ -24,6 +24,8 @@ class AttendancePresenter extends BasePresenter<AttendanceView> {
     private final DisplayAttendance displayAttendance;
     private final BaseSchedulerProvider scheduler;
 
+    public String valueScannedFromQRCode = "";
+
     @Inject
     public AttendancePresenter(DisplayAttendance displayAttendance, AddAttendance addAttendance, BaseSchedulerProvider schedulerProvider) {
         this.displayAttendance = displayAttendance;
@@ -38,11 +40,21 @@ class AttendancePresenter extends BasePresenter<AttendanceView> {
         loadAttendances();
     }
 
+    @Override
+    public void onAttachView(AttendanceView view) {
+        super.onAttachView(view);
+
+        if (!valueScannedFromQRCode.isEmpty()) {
+            onValueScannedFromQRCode(valueScannedFromQRCode);
+            valueScannedFromQRCode = "";
+        }
+    }
+
     public void tapAddAttendanceButton() {
         getView().navigateToQRCodeScannerActivity();
     }
 
-    public void onQRCodeScanned(String value) {
+    private void onValueScannedFromQRCode(String value) {
         try {
             int sessionId = Integer.parseInt(value);
             addAttendance(sessionId);
@@ -56,7 +68,7 @@ class AttendancePresenter extends BasePresenter<AttendanceView> {
         addAttendance.addAttendance(sessionId)
                 .subscribeOn(scheduler.io())
                 .observeOn(scheduler.ui())
-                .subscribe(new ResolvedSingleObserver<Void>(getView().getResolution()) {
+                .subscribe(new ResolvedSingleObserver<String>(getView().getResolution()) {
 
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
@@ -67,11 +79,12 @@ class AttendancePresenter extends BasePresenter<AttendanceView> {
                     }
 
                     @Override
-                    public void onSuccess(@NonNull Void o) {
-                        super.onSuccess(o);
+                    public void onSuccess(@NonNull String message) {
+                        super.onSuccess(message);
 
                         getView().hideLoadingBar();
                         loadAttendances();
+                        getView().showSnackbar(message);
                     }
 
                     @Override
@@ -79,7 +92,6 @@ class AttendancePresenter extends BasePresenter<AttendanceView> {
                         super.onError(e);
 
                         getView().hideLoadingBar();
-                        loadAttendances();
                     }
                 });
     }

@@ -13,6 +13,6 @@ import io.reactivex.Single;
 public interface AttendanceApi {
 
     Single<List<Attendance>> getAttendances();
-    Single<Void> addAttendance(int sessionId);
+    Single<String> addAttendance(int sessionId);
 
 }
