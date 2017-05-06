@@ -57,4 +57,7 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile ('com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.2@aar'){
+        transitive = true
+    }
 }
