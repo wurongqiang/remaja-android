@@ -16,6 +16,8 @@ import retrofit2.http.POST;
 
 public interface ApiService {
 
+    //* Manage User *//
+
     @POST("login")
     @FormUrlEncoded
     Single<UserSingleResponse> login(@Field("username") String email, @Field("password") String password);
@@ -23,7 +25,13 @@ public interface ApiService {
     @POST("logout")
     Completable logout();
 
+
+    //* Attendance *//
+
     @GET("attendances")
     Single<AttendanceListResponse> getAttendances();
 
+    @POST("attendances")
+    @FormUrlEncoded
+    Single<Void> addAttendance(@Field("session_id") int sessionId);
 }

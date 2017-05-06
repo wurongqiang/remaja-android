@@ -41,6 +41,7 @@ public class DisplayAttendanceImpl implements DisplayAttendance {
         Observable<List<Attendance>> disk = Observable.just(attendanceDao.getAttendances()).onErrorResumeNext(Observable.empty());
 
         Single<List<Attendance>> network = attendanceApi.getAttendances().observeOn(Schedulers.computation()).map(attendances -> {
+            attendanceDao.deleteAll();
             attendanceDao.saveAttendances(attendances);
             return attendanceDao.getAttendances();
         });

@@ -24,4 +24,9 @@ public class AttendanceApiImpl implements AttendanceApi {
     public Single<List<Attendance>> getAttendances() {
         return apiService.getAttendances().map(attendanceListResponse -> AttendanceResponse.toAttendances(attendanceListResponse.attendances));
     }
+
+    @Override
+    public Single<Void> addAttendance(int sessionId) {
+        return apiService.addAttendance(sessionId);
+    }
 }

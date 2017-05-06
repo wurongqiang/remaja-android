@@ -20,6 +20,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by huteri on 5/2/17.
@@ -75,6 +76,12 @@ public class AttendanceFragment extends BaseFragment implements AttendanceView {
 
         presenter.onDetachView();
     }
+
+    @OnClick(R.id.fab)
+    void tapAddAttendanceButton() {
+        presenter.tapAddAttendanceButton();
+    }
+
 
     @Override
     public void showLoadingBar() {

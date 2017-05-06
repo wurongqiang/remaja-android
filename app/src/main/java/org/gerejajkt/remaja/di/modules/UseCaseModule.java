@@ -4,6 +4,8 @@ import org.gerejajkt.remaja.data.api.attendance.AttendanceApi;
 import org.gerejajkt.remaja.data.api.user.UserApi;
 import org.gerejajkt.remaja.data.dao.attendance.AttendanceDao;
 import org.gerejajkt.remaja.data.dao.user.UserDao;
+import org.gerejajkt.remaja.domain.addAttendance.AddAttendance;
+import org.gerejajkt.remaja.domain.addAttendance.AddAttendanceImpl;
 import org.gerejajkt.remaja.domain.displayAttendance.DisplayAttendance;
 import org.gerejajkt.remaja.domain.displayAttendance.DisplayAttendanceImpl;
 import org.gerejajkt.remaja.domain.manageUser.ManageUser;
@@ -31,5 +33,11 @@ public class UseCaseModule {
     @Singleton
     DisplayAttendance provideDisplayAttendance(AttendanceDao assignmentDao, AttendanceApi attendanceApi) {
         return DisplayAttendanceImpl.getInstance(assignmentDao, attendanceApi);
+    }
+
+    @Provides
+    @Singleton
+    AddAttendance provideAddAttendance(AttendanceApi attendanceApi) {
+        return AddAttendanceImpl.getInstance(attendanceApi);
     }
 }

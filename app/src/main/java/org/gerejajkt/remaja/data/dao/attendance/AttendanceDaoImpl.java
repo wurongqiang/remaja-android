@@ -30,7 +30,7 @@ public class AttendanceDaoImpl implements AttendanceDao {
 
         RealmQuery<Attendance> allAttendancesQuery = realm.where(Attendance.class);
 
-        RealmResults<Attendance> attendances = (RealmResults<Attendance>) allAttendancesQuery.findAllSorted("meetingDate", Sort.DESCENDING);
+        RealmResults<Attendance> attendances = allAttendancesQuery.findAllSorted("meetingDate", Sort.DESCENDING);
 
         List<Attendance> Attendances1 = realm.copyFromRealm(attendances);
 
