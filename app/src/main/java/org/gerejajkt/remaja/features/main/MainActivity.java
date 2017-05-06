@@ -3,7 +3,6 @@ package org.gerejajkt.remaja.features.main;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import org.gerejajkt.remaja.BaseApplication;
@@ -88,7 +87,4 @@ public class MainActivity extends BaseActivity implements MainView, BottomNaviga
 
     }
 
-    private Fragment getCurrentFragment() {
-        return getSupportFragmentManager().findFragmentByTag("fragment");
-    }
 }
