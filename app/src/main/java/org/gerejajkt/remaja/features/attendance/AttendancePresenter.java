@@ -83,8 +83,8 @@ class AttendancePresenter extends BasePresenter<AttendanceView> {
                         super.onSuccess(message);
 
                         getView().hideLoadingBar();
-                        loadAttendances();
                         getView().showSnackbar(message);
+                        loadAttendances();
                     }
 
                     @Override
