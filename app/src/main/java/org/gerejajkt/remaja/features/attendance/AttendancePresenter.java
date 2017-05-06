@@ -39,7 +39,16 @@ class AttendancePresenter extends BasePresenter<AttendanceView> {
     }
 
     public void tapAddAttendanceButton() {
-        addAttendance(5388);
+        getView().navigateToQRCodeScannerActivity();
+    }
+
+    public void onQRCodeScanned(String value) {
+        try {
+            int sessionId = Integer.parseInt(value);
+            addAttendance(sessionId);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void addAttendance(int sessionId) {

@@ -1,6 +1,8 @@
 package org.gerejajkt.remaja.features.qrcodeScanner;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PointF;
 import android.os.Bundle;
@@ -79,6 +81,12 @@ public class QRCodeScannerActivity extends AppCompatActivity
 
     @Override public void onQRCodeRead(String text, PointF[] points) {
         pointsOverlayView.setPoints(points);
+
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("qr_code_value", text);
+        setResult(Activity.RESULT_OK, returnIntent);
+
+        finish();
     }
 
     private void requestCameraPermission() {
@@ -110,6 +118,7 @@ public class QRCodeScannerActivity extends AppCompatActivity
         qrCodeReaderView.setAutofocusInterval(1000L);
         qrCodeReaderView.setOnQRCodeReadListener(this);
         qrCodeReaderView.setBackCamera();
+        qrCodeReaderView.setQRDecodingEnabled(true);
         flashlightCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 qrCodeReaderView.setTorchEnabled(isChecked);

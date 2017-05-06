@@ -1,8 +1,10 @@
 package org.gerejajkt.remaja.features.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import org.gerejajkt.remaja.BaseApplication;
@@ -59,6 +61,15 @@ public class MainActivity extends BaseActivity implements MainView, BottomNaviga
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Fragment currentFragment = getCurrentFragment();
+
+        if (currentFragment != null) {
+            currentFragment.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
     public void navigateToLoginActivity() {
         getNavigator().navigateToLoginActivity(this);
         finish();
@@ -85,5 +96,9 @@ public class MainActivity extends BaseActivity implements MainView, BottomNaviga
         if (getSupportFragmentManager().findFragmentByTag("fragment") == null)
             getSupportFragmentManager().beginTransaction().add(R.id.container, new AttendanceFragment(), "fragment").commit();
 
+    }
+
+    private Fragment getCurrentFragment() {
+        return getSupportFragmentManager().findFragmentByTag("fragment");
     }
 }

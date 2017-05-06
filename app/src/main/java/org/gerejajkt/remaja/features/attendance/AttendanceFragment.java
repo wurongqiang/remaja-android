@@ -1,5 +1,7 @@
 package org.gerejajkt.remaja.features.attendance;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import org.gerejajkt.remaja.R;
 import org.gerejajkt.remaja.domain.viewparam.AttendanceViewParam;
 import org.gerejajkt.remaja.features.adapter.AttendanceAdapter;
 import org.gerejajkt.remaja.features.base.BaseFragment;
+import org.gerejajkt.remaja.utils.Navigator;
 
 import java.util.List;
 
@@ -77,11 +80,26 @@ public class AttendanceFragment extends BaseFragment implements AttendanceView {
         presenter.onDetachView();
     }
 
+    @Override
+    public void navigateToQRCodeScannerActivity() {
+        getNavigator().navigateToQRCodeScannerActivity(getActivity());
+    }
+
     @OnClick(R.id.fab)
     void tapAddAttendanceButton() {
         presenter.tapAddAttendanceButton();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        onResume();
+        if (requestCode == Navigator.QR_CODE_SCANNED) {
+            if (resultCode == Activity.RESULT_OK) {
+                String qrCodeValue = data.getStringExtra("qr_code_value");
+                presenter.onQRCodeScanned(qrCodeValue);
+            }
+        }
+    }
 
     @Override
     public void showLoadingBar() {
@@ -113,3 +131,4 @@ public class AttendanceFragment extends BaseFragment implements AttendanceView {
         rvMain.setAdapter(attendanceAdapter);
     }
 }
+
