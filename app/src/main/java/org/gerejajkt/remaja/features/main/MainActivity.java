@@ -1,6 +1,5 @@
 package org.gerejajkt.remaja.features.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -58,17 +57,6 @@ public class MainActivity extends BaseActivity implements MainView, BottomNaviga
         super.onStop();
 
         presenter.onDetachView();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        Fragment currentFragment = getCurrentFragment();
-
-        if (currentFragment != null) {
-            currentFragment.onActivityResult(requestCode, resultCode, data);
-        }
     }
 
     @Override

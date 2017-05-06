@@ -17,7 +17,7 @@ import org.gerejajkt.remaja.R;
 import org.gerejajkt.remaja.domain.viewparam.AttendanceViewParam;
 import org.gerejajkt.remaja.features.adapter.AttendanceAdapter;
 import org.gerejajkt.remaja.features.base.BaseFragment;
-import org.gerejajkt.remaja.utils.Navigator;
+import org.gerejajkt.remaja.features.qrcodeScanner.QRCodeScannerActivity;
 
 import java.util.List;
 
@@ -83,7 +83,8 @@ public class AttendanceFragment extends BaseFragment implements AttendanceView {
 
     @Override
     public void navigateToQRCodeScannerActivity() {
-        getNavigator().navigateToQRCodeScannerActivity(getActivity());
+        Intent intent = new Intent(getContext(), QRCodeScannerActivity.class);
+        startActivityForResult(intent, 0);
     }
 
     @OnClick(R.id.fab)
@@ -93,13 +94,9 @@ public class AttendanceFragment extends BaseFragment implements AttendanceView {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == Navigator.QR_CODE_SCANNED) {
-            if (resultCode == Activity.RESULT_OK) {
-                String qrCodeValue = data.getStringExtra("qr_code_value");
-                presenter.valueScannedFromQRCode = qrCodeValue;
-            }
+        if (resultCode == Activity.RESULT_OK) {
+            String qrCodeValue = data.getStringExtra("qr_code_value");
+            presenter.valueScannedFromQRCode = qrCodeValue;
         }
     }
 

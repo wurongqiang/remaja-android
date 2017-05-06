@@ -89,6 +89,14 @@ public class QRCodeScannerActivity extends AppCompatActivity
         finish();
     }
 
+    private void asd() {
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("qr_code_value", "asd");
+        setResult(Activity.RESULT_OK, returnIntent);
+
+        finish();
+    }
+
     private void requestCameraPermission() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
             Snackbar.make(mainLayout, "Camera access is required to display the camera preview.",
@@ -122,6 +130,7 @@ public class QRCodeScannerActivity extends AppCompatActivity
         flashlightCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 qrCodeReaderView.setTorchEnabled(isChecked);
+                asd();
             }
         });
         qrCodeReaderView.startCamera();
