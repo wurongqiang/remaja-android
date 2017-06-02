@@ -27,4 +27,9 @@ public class UserApiImpl implements UserApi {
     public Completable logout() {
         return apiService.logout();
     }
+
+    @Override
+    public Completable changePassword(String password) {
+        return apiService.changePassword(password);
+    }
 }

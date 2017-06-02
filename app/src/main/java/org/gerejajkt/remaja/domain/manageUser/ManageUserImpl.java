@@ -36,6 +36,11 @@ public class ManageUserImpl implements ManageUser {
     }
 
     @Override
+    public Completable changePassword(String password) {
+        return userApi.changePassword(password);
+    }
+
+    @Override
     public Single<UserViewParam> login(String email, String password) {
         return userApi.login(email, password).map(u -> {
             userDao.saveUser(u);

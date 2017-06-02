@@ -26,6 +26,8 @@ public interface ApiService {
     @POST("logout")
     Completable logout();
 
+    @POST("change-password")
+    Completable changePassword(@Field("password") String password);
 
     //* Attendance *//
 
