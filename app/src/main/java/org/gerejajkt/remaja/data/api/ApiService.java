@@ -29,6 +29,9 @@ public interface ApiService {
     @POST("change-password")
     Completable changePassword(@Field("password") String password);
 
+    @POST("edit-profile")
+    Completable editProfile(@Field("name") String name, @Field("phone") String phone, @Field("hall") String hall);
+
     //* Attendance *//
 
     @GET("attendances")

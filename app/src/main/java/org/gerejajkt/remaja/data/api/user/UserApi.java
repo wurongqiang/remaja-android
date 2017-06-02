@@ -12,6 +12,6 @@ import io.reactivex.Single;
 public interface UserApi {
     Single<User> login(String email, String password);
     Completable logout();
-
     Completable changePassword(String password);
+    Completable editProfile(String name, String phone, String hall);
 }

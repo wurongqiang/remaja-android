@@ -15,6 +15,7 @@ public interface ManageUser {
     Single<UserViewParam> getUser();
     Completable logout();
     Completable changePassword(String password);
+    Completable editProfile(String name, String phone, String hall);
 
     boolean isLoggedIn();
     String getToken();

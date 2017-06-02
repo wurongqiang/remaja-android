@@ -32,4 +32,9 @@ public class UserApiImpl implements UserApi {
     public Completable changePassword(String password) {
         return apiService.changePassword(password);
     }
+
+    @Override
+    public Completable editProfile(String name, String phone, String hall) {
+        return apiService.editProfile(name, phone, hall);
+    }
 }

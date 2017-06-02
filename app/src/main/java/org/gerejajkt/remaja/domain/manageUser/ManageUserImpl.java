@@ -41,6 +41,11 @@ public class ManageUserImpl implements ManageUser {
     }
 
     @Override
+    public Completable editProfile(String name, String phone, String hall) {
+        return userApi.editProfile(name, phone, hall);
+    }
+
+    @Override
     public Single<UserViewParam> login(String email, String password) {
         return userApi.login(email, password).map(u -> {
             userDao.saveUser(u);
