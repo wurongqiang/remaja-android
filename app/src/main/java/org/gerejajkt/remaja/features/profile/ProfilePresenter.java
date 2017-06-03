@@ -26,16 +26,10 @@ class ProfilePresenter extends BasePresenter<ProfileView> {
     }
 
     @Override
-    public void onCreateView(ProfileView view) {
-        super.onCreateView(view);
+    public void onAttachView(ProfileView view) {
+        super.onAttachView(view);
 
-        UserViewParam userViewParam = manageUser.getUser().blockingGet();
-
-        getView().showName(userViewParam.getGender(), userViewParam.getName());
-        getView().showEmail(userViewParam.getEmail());
-        getView().showHall(userViewParam.getHall());
-        getView().showPhone(userViewParam.getPhone());
-
+        refreshProfileData();
     }
 
     public void tapChangePassword() {
@@ -77,4 +71,14 @@ class ProfilePresenter extends BasePresenter<ProfileView> {
                     }
                 });
     }
+
+    private void refreshProfileData() {
+        UserViewParam userViewParam = manageUser.getUser().blockingGet();
+
+        getView().showName(userViewParam.getGender(), userViewParam.getName());
+        getView().showEmail(userViewParam.getEmail());
+        getView().showHall(userViewParam.getHall());
+        getView().showPhone(userViewParam.getPhone());
+    }
+
 }

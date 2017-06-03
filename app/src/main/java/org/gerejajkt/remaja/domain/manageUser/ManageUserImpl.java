@@ -42,7 +42,14 @@ public class ManageUserImpl implements ManageUser {
 
     @Override
     public Completable editProfile(String name, String phone, String hall) {
-        return userApi.editProfile(name, phone, hall);
+        return userApi.editProfile(name, phone, hall).doOnComplete(() -> {
+            User currentUser = userDao.getUser();
+            currentUser.setName(name);
+            currentUser.setPhone(phone);
+            currentUser.setHall(hall);
+            userDao.saveUser(currentUser);
+            userInMemory = currentUser;
+        });
     }
 
     @Override
