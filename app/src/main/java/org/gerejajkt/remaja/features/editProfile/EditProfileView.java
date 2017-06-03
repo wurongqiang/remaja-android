@@ -1,5 +1,6 @@
 package org.gerejajkt.remaja.features.editProfile;
 
+import org.gerejajkt.remaja.domain.viewparam.UserViewParam;
 import org.gerejajkt.remaja.features.base.BaseView;
 
 /**
@@ -19,5 +20,7 @@ public interface EditProfileView extends BaseView {
     void showEmptyHallAlert();
 
     void close();
+
+    void initializeForm(UserViewParam userViewParam);
 
 }

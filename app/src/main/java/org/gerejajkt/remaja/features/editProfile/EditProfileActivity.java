@@ -7,6 +7,7 @@ import android.widget.EditText;
 
 import org.gerejajkt.remaja.BaseApplication;
 import org.gerejajkt.remaja.R;
+import org.gerejajkt.remaja.domain.viewparam.UserViewParam;
 import org.gerejajkt.remaja.features.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -96,6 +97,13 @@ public class EditProfileActivity extends BaseActivity implements EditProfileView
     @Override
     public void showEmptyPhoneAlert() {
         etPhone.setError("Please fill your phone");
+    }
+
+    @Override
+    public void initializeForm(UserViewParam userViewParam) {
+        etName.setText(userViewParam.getName());
+        etPhone.setText(userViewParam.getPhone());
+        etHall.setText(userViewParam.getHall());
     }
 
     @OnClick(R.id.btn_save)

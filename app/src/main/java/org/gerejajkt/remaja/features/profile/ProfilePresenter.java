@@ -29,7 +29,7 @@ class ProfilePresenter extends BasePresenter<ProfileView> {
     public void onAttachView(ProfileView view) {
         super.onAttachView(view);
 
-        refreshProfileData();
+        initializeProfileData();
     }
 
     public void tapChangePassword() {
@@ -72,7 +72,7 @@ class ProfilePresenter extends BasePresenter<ProfileView> {
                 });
     }
 
-    private void refreshProfileData() {
+    private void initializeProfileData() {
         UserViewParam userViewParam = manageUser.getUser().blockingGet();
 
         getView().showName(userViewParam.getGender(), userViewParam.getName());

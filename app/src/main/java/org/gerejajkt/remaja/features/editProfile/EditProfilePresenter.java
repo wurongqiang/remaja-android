@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.gerejajkt.remaja.custom.ResolvedCompletableObserver;
 import org.gerejajkt.remaja.domain.manageUser.ManageUser;
+import org.gerejajkt.remaja.domain.viewparam.UserViewParam;
 import org.gerejajkt.remaja.features.base.BasePresenter;
 import org.gerejajkt.remaja.utils.schedulers.BaseSchedulerProvider;
 
@@ -22,6 +23,13 @@ public class EditProfilePresenter extends BasePresenter<EditProfileView> {
     public EditProfilePresenter(ManageUser manageUser, BaseSchedulerProvider schedulerProvider) {
         this.manageUser = manageUser;
         this.scheduler = schedulerProvider;
+    }
+
+    @Override
+    public void onCreateView(EditProfileView view) {
+        super.onCreateView(view);
+
+        initializeProfileData();
     }
 
     public void tabBtnSave(String name, String phone, String hall) {
@@ -68,4 +76,10 @@ public class EditProfilePresenter extends BasePresenter<EditProfileView> {
                     }
                 });
     }
+
+    private void initializeProfileData() {
+        UserViewParam userViewParam = manageUser.getUser().blockingGet();
+        getView().initializeForm(userViewParam);
+    }
+
 }
