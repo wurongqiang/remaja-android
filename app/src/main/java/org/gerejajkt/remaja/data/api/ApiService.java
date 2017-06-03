@@ -27,9 +27,11 @@ public interface ApiService {
     Completable logout();
 
     @POST("change-password")
+    @FormUrlEncoded
     Completable changePassword(@Field("password") String password);
 
     @POST("edit-profile")
+    @FormUrlEncoded
     Completable editProfile(@Field("name") String name, @Field("phone") String phone, @Field("hall") String hall);
 
     //* Attendance *//

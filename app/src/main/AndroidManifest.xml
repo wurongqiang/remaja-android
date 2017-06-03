@@ -27,6 +27,9 @@
         <activity android:name=".features.login.LoginActivity" />
 
         <activity android:name=".features.qrcodeScanner.QRCodeScannerActivity"/>
+
+        <activity android:name=".features.changePassword.ChangePasswordActivity" />
+        <activity android:name=".features.editProfile.EditProfileActivity" />
     </application>
 
 </manifest>

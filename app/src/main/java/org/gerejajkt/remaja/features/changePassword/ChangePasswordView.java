@@ -12,9 +12,11 @@ public interface ChangePasswordView extends BaseView {
 
     void hideLoadingBar();
 
-    void showMandatoryFieldsAlert();
+    void showEmptyNewPasswordAlert();
 
-    void showConfirmationPasswordAlert();
+    void showEmptyConfirmPasswordAlert();
+
+    void showWrongConfirmationPasswordAlert();
 
     void close();
 }

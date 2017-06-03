@@ -63,13 +63,85 @@
             android:text="Logout"
             android:textColor="#494440"
             android:textSize="14sp" />
-
     </LinearLayout>
 
     <View
+        android:id="@+id/layout_logout_bottom_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/layout_logout"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#e8e8e8" />
+
+    <LinearLayout
+        android:id="@+id/layout_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_logout_bottom_line"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_logout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:text="Edit Profile"
+            android:textColor="#494440"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/layout_edit_profile_bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/layout_edit_profile"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#e8e8e8" />
+
+    <LinearLayout
+        android:id="@+id/layout_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_edit_profile_bottom_line"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_logout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:text="Change Password"
+            android:textColor="#494440"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/layout_change_password_bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/layout_change_password"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="#e8e8e8" />

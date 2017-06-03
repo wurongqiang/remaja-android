@@ -97,8 +97,28 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
         getActivity().finish();
     }
 
+    @Override
+    public void openChangePasswordActivity() {
+        getNavigator().openChangePasswordActivity(getActivity());
+    }
+
+    @Override
+    public void openEditProfileActivity() {
+        getNavigator().openEditProfileActivity(getActivity());
+    }
+
     @OnClick(R.id.layout_logout)
     void tapLogout() {
         presenter.tapLogout();
+    }
+
+    @OnClick(R.id.layout_change_password)
+    void tapChangePassword() {
+        presenter.tapChangePassword();
+    }
+
+    @OnClick(R.id.layout_edit_profile)
+    void tapEditProfile() {
+        presenter.tapEditProfile();
     }
 }

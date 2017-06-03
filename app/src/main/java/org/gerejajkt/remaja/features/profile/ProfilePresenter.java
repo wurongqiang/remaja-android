@@ -36,6 +36,14 @@ class ProfilePresenter extends BasePresenter<ProfileView> {
 
     }
 
+    public void tapChangePassword() {
+        getView().openChangePasswordActivity();
+    }
+
+    public void tapEditProfile() {
+        getView().openEditProfileActivity();
+    }
+
     public void tapLogout() {
 
         getView().showLoadingBar();

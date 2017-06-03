@@ -25,14 +25,17 @@ public class ChangePasswordPresenter extends BasePresenter<ChangePasswordView> {
     }
 
     public void tabBtnSave(String password, String confirmPassword) {
-        if(!isViewAttached())
+        if (!isViewAttached())
             return;
 
-        if(password.trim().length() == 0 || confirmPassword.trim().length() == 0) {
-            getView().showMandatoryFieldsAlert();
+        if (password.trim().length() == 0) {
+            getView().showEmptyNewPasswordAlert();
+            return;
+        } else if (confirmPassword.trim().length() == 0) {
+            getView().showEmptyConfirmPasswordAlert();
             return;
         } else if (!password.equals(confirmPassword)) {
-            getView().showConfirmationPasswordAlert();
+            getView().showWrongConfirmationPasswordAlert();
             return;
         }
 

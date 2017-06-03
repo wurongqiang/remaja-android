@@ -12,7 +12,11 @@ public interface EditProfileView extends BaseView {
 
     void hideLoadingBar();
 
-    void showMandatoryFieldsAlert();
+    void showEmptyNameAlert();
+
+    void showEmptyPhoneAlert();
+
+    void showEmptyHallAlert();
 
     void close();
 

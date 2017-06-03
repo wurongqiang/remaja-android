@@ -11,6 +11,11 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+        completions."</string>
+    <string name="prompt_new_password">New Password</string>
+    <string name="prompt_confirm_password">Confirm Password</string>
+    <string name="action_save">Save</string>
+    <string name="prompt_name">Name</string>
+    <string name="prompt_phone">Phone</string>
+    <string name="prompt_hall">Hall</string>
 </resources>

@@ -28,8 +28,14 @@ public class EditProfilePresenter extends BasePresenter<EditProfileView> {
         if(!isViewAttached())
             return;
 
-        if(name.trim().length() == 0 || phone.trim().length() == 0 || hall.trim().length() == 0) {
-            getView().showMandatoryFieldsAlert();
+        if (name.trim().length() == 0) {
+            getView().showEmptyNameAlert();
+            return;
+        } else if (phone.trim().length() == 0) {
+            getView().showEmptyPhoneAlert();
+            return;
+        } else if (hall.trim().length() == 0) {
+            getView().showEmptyHallAlert();
             return;
         }
 

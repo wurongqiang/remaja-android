@@ -16,4 +16,8 @@ interface ProfileView extends BaseView {
     void hideLoadingBar();
 
     void navigateToLoginActivity();
+
+    void openChangePasswordActivity();
+
+    void openEditProfileActivity();
 }
