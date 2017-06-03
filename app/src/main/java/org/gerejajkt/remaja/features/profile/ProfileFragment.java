@@ -84,12 +84,12 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
 
     @Override
     public void showHall(String hall) {
-        tvHall.setText("Hall: " + (hall.isEmpty() ? "-" : hall));
+        tvHall.setText("Hall: " + (hall == null || hall.isEmpty() ? "-" : hall));
     }
 
     @Override
     public void showPhone(String phone) {
-        tvPhone.setText(phone.isEmpty() ? "no phone number" : phone);
+        tvPhone.setText(phone == null || phone.isEmpty() ? "no phone number" : phone);
     }
 
     @Override
