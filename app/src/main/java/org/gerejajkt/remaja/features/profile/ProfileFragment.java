@@ -29,6 +29,12 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
     @BindView(R.id.tv_email)
     TextView tvEmail;
 
+    @BindView(R.id.tv_phone)
+    TextView tvPhone;
+
+    @BindView(R.id.tv_hall)
+    TextView tvHall;
+
     @Inject
     ProfilePresenter presenter;
     private ProgressDialog progressDialog;
@@ -67,13 +73,23 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
     }
 
     @Override
-    public void showName(String name) {
-        tvName.setText(name);
+    public void showName(String gender, String name) {
+        tvName.setText((gender.equals("male") ? "Sdra. " : "Sdri. ") + name);
     }
 
     @Override
     public void showEmail(String email) {
         tvEmail.setText(email);
+    }
+
+    @Override
+    public void showHall(String hall) {
+        tvHall.setText("Hall: " + (hall.isEmpty() ? "-" : hall));
+    }
+
+    @Override
+    public void showPhone(String phone) {
+        tvPhone.setText(phone.isEmpty() ? "no phone number" : phone);
     }
 
     @Override

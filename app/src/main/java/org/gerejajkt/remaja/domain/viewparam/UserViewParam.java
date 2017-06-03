@@ -29,4 +29,15 @@ public class UserViewParam {
         return email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getHall() {
+        return hall;
+    }
+
+    public String getGender() {
+        return gender;
+    }
 }

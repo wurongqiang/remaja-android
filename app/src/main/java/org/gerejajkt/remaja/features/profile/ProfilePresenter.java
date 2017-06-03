@@ -31,8 +31,10 @@ class ProfilePresenter extends BasePresenter<ProfileView> {
 
         UserViewParam userViewParam = manageUser.getUser().blockingGet();
 
-        getView().showName(userViewParam.getName());
+        getView().showName(userViewParam.getGender(), userViewParam.getName());
         getView().showEmail(userViewParam.getEmail());
+        getView().showHall(userViewParam.getHall());
+        getView().showPhone(userViewParam.getPhone());
 
     }
 

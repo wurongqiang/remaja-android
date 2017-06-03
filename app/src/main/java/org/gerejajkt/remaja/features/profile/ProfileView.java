@@ -7,9 +7,13 @@ import org.gerejajkt.remaja.features.base.BaseView;
  */
 
 interface ProfileView extends BaseView {
-    void showName(String name);
+    void showName(String gender, String name);
 
     void showEmail(String email);
+
+    void showHall(String hall);
+
+    void showPhone(String phone);
 
     void showLoadingBar();
 

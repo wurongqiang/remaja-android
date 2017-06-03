@@ -6,33 +6,75 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/user_data_container1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
-        android:fontFamily="sans-serif-medium"
-        android:paddingTop="9dp"
-        android:textColor="#212121"
-        android:textSize="18sp"
-        tools:text="Warren Klein" />
+        android:layout_marginRight="16dp"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:paddingTop="9dp"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            tools:text="Warren Klein" />
 
-    <TextView
-        android:id="@+id/tv_email"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tv_hall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:fontFamily="sans-serif-medium"
+            android:paddingTop="9dp"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            tools:text="Warren Klein" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_data_container2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tv_name"
-        android:layout_below="@+id/tv_name"
         android:layout_marginTop="4dp"
-        android:fontFamily="sans-serif-light"
-        android:textSize="12sp"
-        tools:text="photographer_email@gmail.com" />
+        android:weightSum="2"
+        android:layout_below="@+id/user_data_container1"
+        android:layout_alignLeft="@id/user_data_container1"
+        android:layout_alignRight="@id/user_data_container1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-light"
+            android:textSize="12sp"
+            tools:text="photographer_email@gmail.com" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:fontFamily="sans-serif-light"
+            android:textSize="12sp"
+            tools:text="photographer_email@gmail.com" />
+    </LinearLayout>
 
     <View
+        android:id="@+id/user_data_container2_bottom_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/tv_email"
+        android:layout_below="@+id/user_data_container2"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="#e8e8e8" />
@@ -42,7 +84,7 @@
         android:id="@+id/layout_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_email"
+        android:layout_below="@+id/user_data_container2_bottom_line"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:orientation="horizontal"
